@@ -1,0 +1,19 @@
+﻿@model IEnumerable<GewichtModel>
+
+<table>
+    <tr>
+        <th>Datum</th>
+        <th>Gewicht</th>
+        <th>Comment</th>
+    </tr>
+    @foreach (GewichtModel GewichtModel in Model)
+    {
+        <tr>
+            <td>@GewichtModel.Datum</td>
+            <td>@GewichtModel.Gewicht kg</td>
+            <td>@GewichtModel.Comment</td>
+            <td>@Html.ActionLink("Go to Details", "Detail", "Gewicht", new { id = GewichtModel.Id }, new { @class = "btn btn-primary" })</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("voeg gewicht toe", "AddGewicht", "Gewicht", null, new { @class = "btn btn-primary" })
